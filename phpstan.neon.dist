@@ -1,0 +1,42 @@
+includes:
+#    - phpstan-baseline.neon
+    - app/phpstan_exstention/splynx-exstention.neon
+parameters:
+    level: 8
+    parallel:
+        processTimeout: 300.0
+        maximumNumberOfProcesses: 2
+#   ignore spec errors type
+#    customRulesetUsed: true
+#    reportUnmatchedIgnoredErrors: false
+#    checkMissingIterableValueType: false
+    ignoreErrors:
+        - '#ioncube_#'
+        - '#Unsafe usage of new static#'
+    scanFiles:
+#        - radius/include/function.php
+    bootstrapFiles:
+#        - app/config/version_dev.php
+#        - app/config/config.php
+    paths:
+        - ./
+    excludePaths:
+        analyseAndScan:
+            - vendor
+#            - addons
+#            - system
+#            - tests
+#            - views
+#            - uploads
+#            - templates
+#            - resources
+#            - messages
+#            - logs
+##          - radius
+##          - transport
+##          - queue
+#            - web
+#            - messages
+#            - app/controllers/admin/config/tools/AdminerController.php
+#            - app/phpstan_extensions/testClasses # classes for test extension
+#            - default/config/billing.php

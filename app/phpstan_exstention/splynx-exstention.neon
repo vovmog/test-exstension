@@ -1,0 +1,4 @@
+services:
+    -
+        class: \phpstan_exstention\ReturnTypeExtensions\BaseAppSpecifyType
+        tags: [phpstan.typeSpecifier.methodTypeSpecifyingExtension]
