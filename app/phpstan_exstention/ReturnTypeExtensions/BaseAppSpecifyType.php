@@ -54,7 +54,7 @@ class BaseAppSpecifyType implements MethodTypeSpecifyingExtension
     {
 
         $methodName = $methodReflection->getName();
-        $sureNotTypes = [];
+        $sureTypes = [];
 
         //getUser
         $methodCallGetUser = new MethodCall($node->var, 'getUser');
@@ -69,7 +69,7 @@ class BaseAppSpecifyType implements MethodTypeSpecifyingExtension
         } else {
             $typeGetUser = new ObjectType(Administrators::class);
         }
-        $sureNotTypes[$exprStringGetUser] = [$methodCallGetUser, $typeGetUser];
+        $sureTypes[$exprStringGetUser] = [$methodCallGetUser, $typeGetUser];
 
         //getCustomer
         $methodCallGetCustomer = new MethodCall($node->var, 'getCustomer');
@@ -79,7 +79,7 @@ class BaseAppSpecifyType implements MethodTypeSpecifyingExtension
         } else {
             $typeGetCustomer = new NullType();
         }
-        $sureNotTypes[$exprStringGetCustomer] = [$methodCallGetCustomer, $typeGetCustomer];
-        return new SpecifiedTypes($sureNotTypes, [], true, []);
+        $sureTypes[$exprStringGetCustomer] = [$methodCallGetCustomer, $typeGetCustomer];
+        return new SpecifiedTypes($sureTypes, [], true, []);
     }
 }
